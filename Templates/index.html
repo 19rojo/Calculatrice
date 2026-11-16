@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculatrice Python Web</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700">
+    <h1 class="text-2xl font-bold text-center mb-6 text-indigo-400">Calculatrice Web</h1>
+    
+    <form method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Nombre 1</label>
+        <input type="number" step="any" name="num1" required 
+               class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-indigo-500">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Opération</label>
+        <select name="operation" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-indigo-500">
+          <option value="add">+</option>
+          <option value="sub">-</option>
+          <option value="mul">×</option>
+          <option value="div">÷</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Nombre 2</label>
+        <input type="number" step="any" name="num2" required 
+               class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-indigo-500">
+      </div>
+
+      <button type="submit" 
+              class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-lg transition duration-200 shadow-lg">
+        Calculer
+      </button>
+    </form>
+
+    {% if resultat is not none %}
+      <div class="mt-6 p-4 bg-slate-700/50 rounded-lg border border-slate-600 text-center">
+        <span class="text-sm text-slate-400 block mb-1">Résultat</span>
+        <span class="text-xl font-semibold text-indigo-300">{{ resultat }}</span>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
