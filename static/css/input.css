@@ -1,5 +1,2 @@
 @import "tailwindcss";
-@source "../../Templates";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@source "../../templates";
